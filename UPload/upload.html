@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>CodePen - nice-forms.css</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+<link rel="stylesheet" href="./upload.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+
+  
+  <main class="demo-page-content">
+
+    <section>
+      <div class="href-target" id="input-types"></div>
+      <h1>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-align-justify">
+          <line x1="21" y1="10" x2="3" y2="10" />
+          <line x1="21" y1="6" x2="3" y2="6" />
+          <line x1="21" y1="14" x2="3" y2="14" />
+          <line x1="21" y1="18" x2="3" y2="18" />
+        </svg>
+        Input Data
+      </h1>
+      <p>Input Data Signatures</p>
+
+      <div class="nice-form-group">
+        <label>Name</label>
+        <input type="text" placeholder="Your name" value="" />
+      </div>
+
+      <div class="nice-form-group">
+        <label>Email</label>
+        <input type="email" placeholder="Your email" value="" />
+      </div>
+
+      <div class="nice-form-group">
+        <label>Phonenumber</label>
+        <input type="tel" placeholder="Your phonenumber" value="" />
+      </div>
+
+
+      <div class="nice-form-group">
+        <label>File upload</label>
+
+        <input type="file" id="files" name="files" multiple ><br/>
+        <div id="selectedFiles"></div>
+
+        <script>
+          var selDiv = "";
+            
+          document.addEventListener("DOMContentLoaded", init, false);
+          
+          function init() {
+            document.querySelector('#files').addEventListener('change', handleFileSelect, false);
+            selDiv = document.querySelector("#selectedFiles");
+          }
+            
+          function handleFileSelect(e) {
+            
+            if(!e.target.files) return;
+            
+            selDiv.innerHTML = "";
+            
+            var files = e.target.files;
+            for(var i=0; i<files.length; i++) {
+              var f = files[i];
+              
+              selDiv.innerHTML += f.name + "<br/>";
+        
+            }
+            
+          }
+          </script>
+
+      </div>
+
+      <br>
+      
+      <button class="button">
+
+        
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75"></path>
+        </svg>
+
+        
+        <div class="text">
+          Submit
+        </div>
+
+      </button>
+
+    </section>
+
+  </main>
+<!-- partial -->
+  
+</body>
+</html>
