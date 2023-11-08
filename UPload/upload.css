@@ -121,7 +121,7 @@ table {
   white-space: normal;
 }
 .nice-form-group > input[type="email"],
-.nice-form-group > input[type="tel"],
+.nice-form-group > input[type="id"],
 .nice-form-group > input[type="text"],
 .nice-form-group > select {
   background: var(--nf-input-background-color);
@@ -150,7 +150,7 @@ table {
 .nice-form-group
   > input[type="email"]:required:not(:-moz-placeholder-shown):invalid,
 .nice-form-group
-  > input[type="tel"]:required:not(:-moz-placeholder-shown):invalid,
+  > input[type="id"]:required:not(:-moz-placeholder-shown):invalid,
 .nice-form-group
   > input[type="text"]:required:not(:-moz-placeholder-shown):invalid,
 .nice-form-group 
@@ -168,7 +168,7 @@ table {
 .nice-form-group
   > input[type="email"]:required:not(:-ms-input-placeholder):invalid,
 .nice-form-group
-  > input[type="tel"]:required:not(:-ms-input-placeholder):invalid,
+  > input[type="id"]:required:not(:-ms-input-placeholder):invalid,
 .nice-form-group
   > input[type="text"]:required:not(:-ms-input-placeholder):invalid,
 
@@ -185,7 +185,7 @@ table {
 .nice-form-group
   > input[type="email"]:required:not(:-moz-placeholder-shown):invalid:focus,
 .nice-form-group
-  > input[type="tel"]:required:not(:-moz-placeholder-shown):invalid:focus,
+  > input[type="id"]:required:not(:-moz-placeholder-shown):invalid:focus,
 .nice-form-group
   > input[type="text"]:required:not(:-moz-placeholder-shown):invalid:focus,
 
@@ -200,7 +200,7 @@ table {
 .nice-form-group
   > input[type="email"]:required:not(:-ms-input-placeholder):invalid:focus,
 .nice-form-group
-  > input[type="tel"]:required:not(:-ms-input-placeholder):invalid:focus,
+  > input[type="id"]:required:not(:-ms-input-placeholder):invalid:focus,
 .nice-form-group
   > input[type="text"]:required:not(:-ms-input-placeholder):invalid:focus,
 
@@ -214,7 +214,7 @@ table {
 .nice-form-group
   > input[type="email"]:required:not(:-moz-placeholder-shown):valid,
 .nice-form-group
-  > input[type="tel"]:required:not(:-moz-placeholder-shown):valid,
+  > input[type="id"]:required:not(:-moz-placeholder-shown):valid,
 .nice-form-group
   > input[type="text"]:required:not(:-moz-placeholder-shown):valid,
 
@@ -230,7 +230,7 @@ table {
 .nice-form-group
   > input[type="email"]:required:not(:-ms-input-placeholder):valid,
 .nice-form-group 
-  > input[type="tel"]:required:not(:-ms-input-placeholder):valid,
+  > input[type="id"]:required:not(:-ms-input-placeholder):valid,
 .nice-form-group
   > input[type="text"]:required:not(:-ms-input-placeholder):valid,
 
@@ -243,21 +243,21 @@ table {
   color: var(--nf-valid-input-color);
 }
 .nice-form-group > input[type="email"]:disabled,
-.nice-form-group > input[type="tel"]:disabled,
+.nice-form-group > input[type="id"]:disabled,
 .nice-form-group > input[type="text"]:disabled,
 .nice-form-group > select:disabled {
   cursor: not-allowed;
   opacity: 0.75;
 }
 .nice-form-group > input[type="email"]::-webkit-input-placeholder,
-.nice-form-group > input[type="tel"]::-webkit-input-placeholder,
+.nice-form-group > input[type="id"]::-webkit-input-placeholder,
 .nice-form-group > input[type="text"]::-webkit-input-placeholder,
 .nice-form-group > select::-webkit-input-placeholder {
   color: var(--nf-input-placeholder-color);
   letter-spacing: 0;
 }
 .nice-form-group > input[type="email"]:-ms-input-placeholder,
-.nice-form-group > input[type="tel"]:-ms-input-placeholder,
+.nice-form-group > input[type="id"]:-ms-input-placeholder,
 .nice-form-group > input[type="text"]:-ms-input-placeholder,
 .nice-form-group > select:-ms-input-placeholder {
   color: var(--nf-input-placeholder-color);
@@ -265,8 +265,8 @@ table {
 }
 .nice-form-group > input[type="email"]:-moz-placeholder,
 .nice-form-group > input[type="email"]::-moz-placeholder,
-.nice-form-group > input[type="tel"]:-moz-placeholder,
-.nice-form-group > input[type="tel"]::-moz-placeholder,
+.nice-form-group > input[type="id"]:-moz-placeholder,
+.nice-form-group > input[type="id"]::-moz-placeholder,
 .nice-form-group > input[type="text"]:-moz-placeholder,
 .nice-form-group > input[type="text"]::-moz-placeholder,
 .nice-form-group > select:-moz-placeholder,
@@ -275,7 +275,7 @@ table {
   letter-spacing: 0;
 }
 .nice-form-group > input[type="email"]:focus,
-.nice-form-group > input[type="tel"]:focus,
+.nice-form-group > input[type="id"]:focus,
 .nice-form-group > input[type="text"]:focus,
 .nice-form-group > select:focus {
   outline: 0;
@@ -284,7 +284,7 @@ table {
 
 
 .nice-form-group > input[type="email"] + small,
-.nice-form-group > input[type="tel"] + small,
+.nice-form-group > input[type="id"] + small,
 .nice-form-group > input[type="text"] + small,
 .nice-form-group > select + small,
 .nice-form-group > textarea + small {
@@ -293,7 +293,7 @@ table {
 
 
 .nice-form-group > input[type="email"].icon-left,
-.nice-form-group > input[type="tel"].icon-left,
+.nice-form-group > input[type="id"].icon-left,
 .nice-form-group > input[type="text"].icon-left,
 .nice-form-group > select.icon-left,
 .nice-form-group > textarea.icon-left {
@@ -304,7 +304,7 @@ table {
 
 
 .nice-form-group > input[type="email"].icon-right,
-.nice-form-group > input[type="tel"].icon-right,
+.nice-form-group > input[type="id"].icon-right,
 .nice-form-group > input[type="text"].icon-right,
 .nice-form-group > select.icon-right,
 .nice-form-group > textarea.icon-right {
@@ -316,7 +316,7 @@ table {
 
 
 .nice-form-group > input[type="email"]:-webkit-autofill,
-.nice-form-group > input[type="tel"]:-webkit-autofill,
+.nice-form-group > input[type="id"]:-webkit-autofill,
 .nice-form-group > input[type="text"]:-webkit-autofill {
   padding: calc(var(--nf-input-size) * 0.75) !important;
 }
@@ -432,10 +432,58 @@ section p {
   margin: 0.5rem 0 1.5rem;
 }
 
+/* ///// */
+.container1 {
+  display: flex;
+  justify-content: flex-end;
+  /* margin-right: 1.5em; */
+  padding-top: 20px;
+}
 
+.button1 {
+  background-color: #ffffff00;
+  color: #2b134b;
+  width: 8.5em;
+  height: 2.9em;
+  border: #0f8 0.2em solid;
+  border-radius: 11px;
+  text-align: left;
+  transition: all 0.6s ease;
+}
 
+.button1:hover {
+  background-color: #0f8;
+  cursor: pointer;
+}
+
+.button1 svg {
+  width: 1.6em;
+  margin-left: 60px;
+  position: absolute;
+  display: flex;
+  transition: all 0.6s ease;
+}
+
+.flex-container {
+  display: flex;
+  justify-content: space-between; /* This will push the text and SVG to opposite ends */
+  align-items: center; /* Vertically align content */
+}
+
+.button1:hover svg {
+  transform: translateX(-5px);
+}
+
+.text1 {
+  margin: 0 1.5em
+}
 /* ///// */
 
+
+.container {
+  display: flex;
+  justify-content: flex-end; /* Align the button to the right */
+}
 
 .button {
   background-color: #ffffff00;
@@ -467,4 +515,27 @@ section p {
 
 .text {
   margin: 0 1.5em
+}
+
+/* //////////// */
+
+.column {
+  float: left;
+  width: 50%;
+  padding: 10px;
+  height: 80px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+  }
 }
