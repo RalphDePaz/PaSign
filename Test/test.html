@@ -59,12 +59,12 @@
                 <input type="text" placeholder="" value="" />
               </div>
 
-              <div class="nice-form-group">
+              <!-- <div class="nice-form-group">
                 <label>File upload</label>
         
                 <input type="file" id="files" name="files"><br/>
                 <div id="selectedFiles"></div>
-              </div>
+              </div> -->
               
               <br>
           
@@ -81,13 +81,32 @@
             <div class="signature-container">
               <div class="info-container">
                 <div class="nice-form-group">
-                  <label>SIGNATURE PREVIEW</label>
-                  <input type="text" placeholder="" value="" />
+
+                  <form runat="server">
+                    <div class="image-preview">
+                      <img id="blah" src="#" alt="Your Signature Preview" />
+                    </div>
+                    <label for="imgInp" class="custom-file-upload">
+                      Choose Image
+                      <input accept="image/*" type='file' id="imgInp" style="display: none;" />
+                    </label>
+                  </form>
+                  
                 </div>
               </div>
             </div>
-
+            
         </section>
+
+        <script>
+          imgInp.onchange = evt => {
+            const [file] = imgInp.files
+            if (file) {
+              blah.src = URL.createObjectURL(file)
+            }
+          }
+        </script>
+
       </main>
 
 <script src="js/test.js"></script>
