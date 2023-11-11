@@ -81,7 +81,7 @@ table {
   --nf-input-border-width: 1px;
   --nf-input-border-style: solid;
   --nf-input-border-bottom-width: 2px;
-  --nf-input-focus-border-color: #0f8;
+  --nf-input-focus-border-color: #d4af37;
   --nf-input-background-color: #f9fafb;
   --nf-invalid-input-border-color: var(--nf-input-border-color);
   --nf-invalid-input-background-color: var(--nf-input-background-color);
@@ -377,14 +377,12 @@ table {
   box-sizing: inherit;
 }
 
-
-
 html {
   font-size: 16px;
   box-sizing: border-box;
 }
 body {
-  background: #f3f0e7;
+  background: #f8f9fd;
   font-family: Roboto, sans-serif;
   color: #4b5563;
   -webkit-font-smoothing: antialiased;
@@ -445,14 +443,14 @@ section p {
   color: #2b134b;
   width: 8.5em;
   height: 2.9em;
-  border: #0f8 0.2em solid;
+  border: #d4af37 0.2em solid;
   border-radius: 11px;
   text-align: left;
   transition: all 0.6s ease;
 }
 
 .button1:hover {
-  background-color: #0f8;
+  background-color: #d4af37;
   cursor: pointer;
 }
 
@@ -490,14 +488,14 @@ section p {
   color: #2b134b;
   width: 8.5em;
   height: 2.9em;
-  border: #0f8 0.2em solid;
+  border: #d4af37 0.2em solid;
   border-radius: 11px;
   text-align: right;
   transition: all 0.6s ease;
 }
 
 .button:hover {
-  background-color: #0f8;
+  background-color: #d4af37;
   cursor: pointer;
 }
 
@@ -538,4 +536,13 @@ section p {
   .column {
     width: 100%;
   }
+}
+
+.name-container {
+  display: flex;
+  gap: 10px;
+}
+
+.name-container .nice-form-group {
+  flex: 1;
 }

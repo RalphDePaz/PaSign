@@ -81,7 +81,7 @@ table {
   --nf-input-border-width: 1px;
   --nf-input-border-style: solid;
   --nf-input-border-bottom-width: 2px;
-  --nf-input-focus-border-color: #0f8;
+  --nf-input-focus-border-color: #d4af37;
   --nf-input-background-color: #f9fafb;
   --nf-invalid-input-border-color: var(--nf-input-border-color);
   --nf-invalid-input-background-color: var(--nf-input-background-color);
@@ -133,7 +133,7 @@ table {
   border-bottom: var(--nf-input-border-bottom-width)
     var(--nf-input-border-style) var(--nf-input-border-color);
   color: var(--nf-input-color);
-  width: 100%;
+  width: 80%;
   padding: calc(var(--nf-input-size) * 0.75);
   height: calc(var(--nf-input-size) * 2.75);
   line-height: normal;
@@ -279,6 +279,7 @@ table {
   font-family: var(--nf-input-font-family);
   cursor: pointer;
 }
+
 *,
 :after,
 :before {
@@ -289,7 +290,7 @@ html {
   box-sizing: border-box;
 }
 body {
-  background: #f3f0e7;
+  background: #f8f9fd;
   font-family: Roboto, sans-serif;
   color: #4b5563;
   -webkit-font-smoothing: antialiased;
@@ -297,7 +298,7 @@ body {
 }
 .demo-page-content {
   padding: 2em 1em;
-  max-width: 40%;
+  max-width: 50%;
   margin: auto;
 }
 footer {
@@ -346,14 +347,14 @@ section p {
   color: #2b134b;
   width: 8.5em;
   height: 2.9em;
-  border: #0f8 0.2em solid;
+  border: #d4af37 0.2em solid;
   border-radius: 11px;
   text-align: right;
   transition: all 0.6s ease;
 }
 
 .button:hover {
-  background-color: #0f8;
+  background-color: #d4af37;
   cursor: pointer;
 }
 
@@ -372,3 +373,108 @@ section p {
 .text {
   margin: 0 1.5em
 }
+
+
+
+/* ///// */
+.container1 {
+  display: flex;
+  justify-content: flex-end;
+  /* margin-right: 1.5em; */
+  padding-top: 20px;
+}
+
+.button1 {
+  background-color: #ffffff00;
+  color: #2b134b;
+  width: 8.5em;
+  height: 2.9em;
+  border: #d4af37 0.2em solid;
+  border-radius: 11px;
+  text-align: left;
+  transition: all 0.6s ease;
+}
+
+.button1:hover {
+  background-color: #d4af37;
+  cursor: pointer;
+}
+
+.button1 svg {
+  width: 1.6em;
+  margin-left: 60px;
+  position: absolute;
+  display: flex;
+  transition: all 0.6s ease;
+}
+
+.flex-container {
+  display: flex;
+  justify-content: space-between; /* This will push the text and SVG to opposite ends */
+  align-items: center; /* Vertically align content */
+}
+
+.button1:hover svg {
+  transform: translateX(-5px);
+}
+
+.text1 {
+  margin: 0 1.5em
+}
+
+/* //////////// */
+
+.column {
+  float: left;
+  width: 50%;
+  padding: 10px;
+  height: 80px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+  }
+}
+
+.name-container {
+  display: flex;
+  gap: 10px;
+}
+
+.container {
+  display: flex;
+  align-items: flex-start;
+}
+
+.info-container {
+  flex: 1;
+  margin-right: 1em; /* Adjust spacing between containers */
+}
+
+.signature-container {
+  display: flex;
+  align-items: flex-start;
+}
+
+.signature-preview-text {
+  font-size: 0.875rem;
+  color: #374151;
+  margin-right: 1em;
+}
+
+#signaturePreview {
+  max-width: 200px;
+}
+
+
+
+
