@@ -298,7 +298,7 @@ body {
 }
 .demo-page-content {
   padding: 2em 1em;
-  max-width: 50%;
+  max-width: 90%;
   margin: auto;
 }
 footer {
@@ -320,6 +320,7 @@ section {
   font-size: 0.875rem;
   box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
     0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  height: 650px;
 }
 section h1 {
   font-weight: 500;
@@ -457,12 +458,21 @@ section p {
 
 .info-container {
   flex: 1;
-  margin-right: 1em; /* Adjust spacing between containers */
+  margin: 1em; /* Adjust spacing between containers */
 }
+
+.info-container1 {
+  flex: 1;
+  margin: 0px 20px 20px 20px /* Adjust spacing between containers */
+}
+
 
 .signature-container {
   display: flex;
   align-items: flex-start;
+  /* flex-direction: column; Stack items vertically */
+  align-items: center; /* Center items horizontally */
+  justify-content: center; /* Center items vertically */
 }
 
 .signature-preview-text {
@@ -477,6 +487,23 @@ section p {
 
 
 /* /////////// */
+
+
+.image-preview1 {
+  margin-bottom: 20px;
+  width: 150px;
+  height: 100px;
+  border: 3px solid #686868;
+  display: flex;
+  /* align-items: center; */
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+}
+
+.image-preview1 img {
+  align-items: center;
+}
 
 
 .image-preview {
@@ -519,3 +546,105 @@ section p {
   background-color: #ccc;
 }
 
+/* test button */
+.btn {
+  display: inline-block;
+  padding: 0.9rem 1.8rem;
+  font-size: 16px;
+  font-weight: 700;
+  color: #d4af37 ;
+  border: 3px solid rgb(0, 0, 0);
+  cursor: pointer;
+  position: relative;
+  background-color: transparent;
+  text-decoration: none;
+  overflow: hidden;
+  z-index: 1;
+  font-family: inherit;
+  
+  /* margin-top: 100px; */
+
+  border-radius: 10px;
+ }
+ 
+ .btn::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(0, 0, 0);
+  transform: translateX(-100%);
+  transition: all .3s;
+  z-index: -1;
+ }
+ 
+ .btn:hover::before {
+  transform: translateX(0);
+ }
+
+
+ /* test container */
+
+ .test-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  display: flex;
+  margin: 40px;
+ }
+
+
+ /* result */
+
+ /* .result-tab {
+    padding: 5px;
+    font-size: 10px;
+    font-weight: 700;
+    color: #d4af37;
+    border: 3px solid rgb(0, 0, 0);
+    background-color: transparent;
+    font-family: inherit;
+    border-radius: 10px;
+    width:fit-content;
+    width: 500px;
+    text-align: center;
+    margin-top: 420px;
+    position: absolute;
+ } */
+
+
+.result-container {
+  margin-top: 20px; /* Adjust this margin as needed */
+  padding: 5px;
+  font-size: 10px;
+  font-weight: 700;
+  color: #d4af37;
+  font-family: inherit;
+  width:fit-content;
+  text-align: center;
+  margin-top: 420px;
+  position: absolute;
+}
+
+.result-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.result-tab {
+  padding: auto;
+  font-size: 10px;
+  font-weight: 700;
+  color: #d4af37;
+  border: 2px solid rgb(0, 0, 0);
+  font-family: inherit;
+  text-align: center;
+  width: 140px;
+}
+
+.result-tab:not(:last-child) {
+  border-right: 2px solid #000000; /* Adding a right border to separate columns */
+}
