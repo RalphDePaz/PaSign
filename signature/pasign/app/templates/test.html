@@ -75,23 +75,23 @@
                   <div class="info-container1">
                     <div class="nice-form-group">
     
-                      <form runat="server">
-                        <div class="image-preview1">
-                          <img id="blah1" src="" alt="" />
-                        </div>
-                      </form>
-  
-                      <form runat="server">
-                        <div class="image-preview1">
-                          <img id="blah1" src="" alt="" />
-                        </div>
-                      </form>
-  
-                      <form runat="server">
-                        <div class="image-preview1">
-                          <img id="blah1" src="" alt="" />
-                        </div>
-                      </form>     
+                        <form runat="server">
+                            <div class="image-preview1">
+                                <img id="blah1" src="" alt="" />
+                            </div>
+                        </form>
+    
+                        <form runat="server">
+                            <div class="image-preview1">
+                                <img id="blah2" src="" alt="" />
+                            </div>
+                        </form>
+    
+                        <form runat="server">
+                            <div class="image-preview1">
+                                <img id="blah3" src="" alt="" />
+                            </div>
+                        </form>  
                       
                     </div>
                   </div>
@@ -149,7 +149,8 @@
             }
         };
     
-        // Event listener for student ID input
+
+    // Event listener for student ID input
     document.getElementById('studentIdInput').addEventListener('input', function () {
         let studentId = this.value.trim(); // Trim any leading or trailing whitespaces
 
@@ -165,21 +166,41 @@
         this.value = studentId;
 
         if (studentId.length === 11) { // Check if the full pattern is matched
-            // Make an AJAX request to the server to fetch corresponding name and email
+            // Make an AJAX request to the server to fetch corresponding name, email, and signature file URL
             fetch(`/get-student-data/${encodeURIComponent(studentId)}/`)
-                .then(response => response.json())
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! Status: ${response.status}`);
+                    }
+                    return response.json();
+                })
                 .then(data => {
+                    console.log(data); // Log the data to the console for debugging
+
                     document.getElementById('nameInput').value = data.name || '';
                     document.getElementById('emailInput').value = data.email || '';
+
+                    // Assuming you have an element with ID 'blah1' to display the image
+                    const imagePreview = document.getElementById('blah1');
+                    if (data.signature_files_url) {
+                        // Do not include '/media/' again; it's already in the data.signature_files_url
+                        imagePreview.src = data.signature_files_url;
+                        imagePreview.style.display = 'block'; // Show the image preview element
+                    } else {
+                        imagePreview.src = ''; // Clear the image preview element
+                        imagePreview.style.display = 'none'; // Hide the image preview element
+                    }
                 })
                 .catch(error => {
                     console.error('Error fetching student data:', error);
                     // Handle the error, e.g., display a message to the user
                 });
         } else {
-            // Clear name and email inputs if the pattern is not fully matched
+            // Clear name, email, and image preview if the pattern is not fully matched
             document.getElementById('nameInput').value = '';
             document.getElementById('emailInput').value = '';
+            document.getElementById('blah1').src = ''; // Clear the image preview element
+            document.getElementById('blah1').style.display = 'none'; // Hide the image preview element
         }
     });
     </script>

@@ -69,6 +69,16 @@ def register_user(request):
     if request.method == 'POST':
         form = UserDataForm(request.POST, request.FILES)
         if form.is_valid():
+            # Check for existing user with case-insensitive comparison
+            student_id = form.cleaned_data['student_id']
+            email = form.cleaned_data['email'].lower()
+
+            # Check if a user with the same student ID or email already exists
+            if UserData.objects.filter(student_id=student_id).exclude(id=form.instance.id).exists() or \
+               UserData.objects.filter(email__iexact=email).exclude(id=form.instance.id).exists():
+                messages.error(request, 'User with similar information already exists. Please check and try again.')
+                return render(request, 'upload.html', {'form': form})
+
             user_data = form.save()
 
             # Use the get_user_signature_path function to determine the path
@@ -113,8 +123,7 @@ def get_student_data(request, student_id):
         data = {
             'name': f"{student.first_name} {student.last_name}",
             'email': student.email,
-            # Assuming you want to return the URL of the uploaded signature file
-            'signature_file_url': student.signature_files.url if student.signature_files else '',
+            'signature_files_url': student.signature_files.url if student.signature_files else '',
         }
         return JsonResponse(data)
     except UserData.DoesNotExist:
