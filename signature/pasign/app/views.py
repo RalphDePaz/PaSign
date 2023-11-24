@@ -68,7 +68,10 @@ class UploadView(View):
 def register_user(request):
     if request.method == 'POST':
         form = UserDataForm(request.POST, request.FILES)
-        if form.is_valid():
+
+        signatures = request.FILES.getlist('signature_files')
+
+        if form.is_valid() and len(signatures) == 3:
             # Check for existing user with case-insensitive comparison
             student_id = form.cleaned_data['student_id']
             email = form.cleaned_data['email'].lower()
@@ -84,19 +87,19 @@ def register_user(request):
             # Use the get_user_signature_path function to determine the path
             signature_folder = get_user_signature_path(user_data, '')
 
-            # Create a folder for the specific person using their student_id
-            folder_name = f"user_{user_data.student_id}"
-            folder_path = os.path.join(settings.MEDIA_ROOT, signature_folder, folder_name)
 
-            if not os.path.exists(folder_path):
-                os.makedirs(folder_path)
+            for i, signature_file in enumerate(signatures, start=1):
+                file_extension = os.path.splitext(signature_file.name)[1]
+                new_file_name = f'{student_id}_signature_{i}{file_extension}'
+                new_file_path = os.path.join(settings.MEDIA_ROOT, signature_folder, new_file_name)
+                
+                os.makedirs(os.path.dirname(new_file_path), exist_ok=True)
 
-            # Move the uploaded file to the created folder
-            original_file_path = os.path.join(settings.MEDIA_ROOT, user_data.signature_files.name)
-            signature_file_path = os.path.join(folder_path, os.path.basename(original_file_path))
+                with open(new_file_path, 'wb') as file:
+                    file.write(signature_file.read())
+                
+                setattr(user_data, f'signature_{i}', os.path.join(signature_folder, new_file_name))
 
-            os.rename(original_file_path, signature_file_path)
-            user_data.signature_files.name = f"{signature_folder}/{folder_name}/{os.path.basename(original_file_path)}"
             user_data.save()
 
             # Add success message
@@ -123,7 +126,7 @@ def get_student_data(request, student_id):
         data = {
             'name': f"{student.first_name} {student.last_name}",
             'email': student.email,
-            'signature_files_url': student.signature_files.url if student.signature_files else '',
+            'signature_1_url': student.signature_1.url if student.signature_1 else '',
         }
         return JsonResponse(data)
     except UserData.DoesNotExist:
