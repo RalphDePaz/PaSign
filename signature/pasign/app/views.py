@@ -127,10 +127,14 @@ def get_student_data(request, student_id):
             'name': f"{student.first_name} {student.last_name}",
             'email': student.email,
             'signature_1_url': student.signature_1.url if student.signature_1 else '',
+            'signature_2_url': student.signature_2.url if student.signature_2 else '',
+            'signature_3_url': student.signature_3.url if student.signature_3 else '',
         }
         return JsonResponse(data)
     except UserData.DoesNotExist:
         return JsonResponse({'error': 'Student not found'}, status=404)
+
+
 
     
 
