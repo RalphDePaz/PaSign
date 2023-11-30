@@ -58,11 +58,6 @@
                     <input type="text" id="emailInput" placeholder="" value="" disabled />
                 </div>
 
-                <!-- <div class="nice-form-group">
-                    <label>Signature Type</label>
-                    <input type="text" id="emailInput" placeholder="" value="" disabled />
-                </div> -->
-
                 <br>
 
             </div>
@@ -104,11 +99,11 @@
     
                       <form runat="server">
                         <div class="image-preview">
-                          <img id="blah2" src="#" alt="Your Signature Preview" />
+                          <img id="blah4" src="#" alt="Your Signature Preview" />
                         </div>
-                        <label for="imgInp2" class="custom-file-upload">
+                        <label for="imgInp4" class="custom-file-upload">
                             Choose Image
-                            <input accept="image/*" type='file' id="imgInp2" style="display: none;" />
+                            <input accept="image/*" type='file' id="imgInp4" style="display: none;" />
                           </label>                          
                       </form>
                       
@@ -139,12 +134,12 @@
     </section>
 
     <script>
-        document.getElementById('imgInp2').onchange = evt => {
+        document.getElementById('imgInp4').onchange = evt => {
             const fileInput = evt.target;
             const [file] = fileInput.files;
     
             if (file) {
-                const previewImage = document.getElementById('blah2');
+                const previewImage = document.getElementById('blah4');
                 previewImage.src = URL.createObjectURL(file);
             }
         };
